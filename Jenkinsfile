@@ -21,7 +21,7 @@ node() {
         }
     }
     stage('Expose report') {
-        archive "**/cucumber.json"
+        archiveArtifacts artifacts: "**/cucumber.json"
         cucumber '**/cucumber.json'
     }
 	stage('Import results to Xray') {
