@@ -1,6 +1,6 @@
 node() {
 
-    def repoURL = 'https://github.com/stgenin/cucumber.git'
+    def repoURL = 'https://github.com/stgenin/cucumber2.git'
 
     stage("Prepare Workspace") {
         cleanWs()
