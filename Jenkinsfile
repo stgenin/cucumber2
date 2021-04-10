@@ -12,8 +12,11 @@ node() {
     stage('Checkout Self') {
         git branch: 'xray_video', credentialsId: '', url: repoURL
     }
+    stage ('Import Scenarions from XRay') {}
+        step([$class: 'XrayExportBuilder', credentialId: '', filePath: '/features', issues: 'MXP-36', serverInstance: 'SERVER-0ee72acd-5079-404f-8b3e-c3eb0827002a'])
+        }
     stage('Cucumber Tests') {
-        withMaven(maven: 'maven35') {
+            withMaven(maven: 'maven35') {
             sh """
 			cd ${env.WORKSPACE_LOCAL}
 			mvn clean test
